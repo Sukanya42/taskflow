@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow | Task Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <header class="top-bar">
+      <a href="#" class="brand">TaskFlow<span>.</span></a>
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme">🌙</button>
+    </header>
+
+    <main>
+      <section class="welcome-section">
+        <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+        <h1>Make today <span>count.</span></h1>
+        <p class="subtitle">Organize your tasks. Focus on what matters.</p>
+      </section>
+
+      <section class="quote-card">
+        <p class="quote-label">DAILY REMINDER</p>
+        <p id="quote-box">Small steps lead to big results.</p>
+      </section>
+
+      <section class="task-form-card">
+        <h2>Create a task</h2>
+        <p class="section-description">Add something you want to accomplish.</p>
+
+        <form id="task-form">
+          <div class="form-group">
+            <label for="task-title">Task title</label>
+            <input
+              type="text"
+              id="task-title"
+              placeholder="e.g. Complete project documentation"
+              required
+            >
+            <small id="title-error" class="error-message"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="task-desc">Description <span>(optional)</span></label>
+            <textarea
+              id="task-desc"
+              rows="3"
+              placeholder="Add a few details..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority">
+              <option value="low">Low priority</option>
+              <option value="medium" selected>Medium priority</option>
+              <option value="high">High priority</option>
+            </select>
+          </div>
+
+          <button type="submit" class="primary-btn">+ Add task</button>
+        </form>
+      </section>
+
+      <section class="tasks-section">
+        <div class="tasks-heading">
+          <div>
+            <h2>Your tasks</h2>
+            <p class="section-description">
+              <span id="total-count">0</span> tasks in your workspace
+            </p>
+          </div>
+          <button id="clear-completed-btn" class="text-btn" type="button">
+            Clear completed
+          </button>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="pending" type="button">Pending</button>
+          <button class="filter-btn" data-filter="completed" type="button">Completed</button>
+        </div>
+
+        <div id="tasks-container" class="tasks-container"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>TaskFlow · One task at a time.</p>
+    </footer>
+
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
